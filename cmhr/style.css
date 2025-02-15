@@ -1,0 +1,425 @@
+/* ---------- 基础样式 & 字体 ---------- */
+@font-face {
+    font-family: 'Poppins-EB';
+    src: url('font/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins-M';
+    src: url('font/Poppins-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins-SB';
+    src: url('font/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #121212;
+    font-family: 'Poppins-M', sans-serif;
+    color: #00bb8b;
+}
+
+/* ---------- 顶部导航栏 ---------- */
+#top-nav-bar {
+    width: 100%;
+    height: 40px;
+    background-color: #000;
+    color: #00bb8b;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    z-index: 1001;
+    padding: 0; 
+}
+
+#top-nav-bar button {
+    cursor: pointer;
+    border: none;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    font-family: 'Poppins-EB', sans-serif;
+}
+
+.btn-black-green {
+    background-color: #000;
+    color: #00bb8b;
+}
+
+.btn-green-black {
+    background-color: #00bb8b;
+    color: #000;
+}
+
+/* ---------- 地图容器 ---------- */
+#map {
+    position: absolute;
+    top: 40px; /* 顶部导航栏高度 */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #161616;
+}
+
+/* ---------- 地图容器 ---------- */
+#mapCommunity {
+    position: absolute;
+    top: 40px; /* 顶部导航栏高度 */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #161616; /* 另设一个背景示例 */
+}
+
+/* ---------- 控制面板 ---------- */
+#control-panel {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    width: 270px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+    max-height: calc(100% - 60px);
+    box-sizing: border-box; 
+    overflow: hidden;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#control-panel h3 {
+    color: #00bb8b;
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-family: 'Poppins-SB', sans-serif;
+}
+
+.panel-section {
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 170, 130, 0.3);
+    padding-bottom: 15px;
+}
+
+.panel-section:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* ---------- 搜索框和结果 ---------- */
+#searchInput {
+    position: relative;
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #00bb8b;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #00bb8b;
+    font-family: 'Poppins-M', sans-serif;
+}
+
+#searchInput::placeholder {
+    color: rgba(0, 170, 130, 0.5);
+}
+
+#searchResults {
+    position: absolute;
+    width: 200px;
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgba(22, 22, 22, 0.9);
+    border: 1px solid #00bb8b;
+    border-radius: 4px;
+    margin-top: 5px;
+    display: none;
+    font-family: 'Poppins-M', sans-serif;
+    z-index: 1001;
+}
+
+.search-result-item {
+    padding: 8px;
+    color: #00bb8b;
+    cursor: pointer;
+}
+
+.search-result-item:hover {
+    background: rgba(0, 170, 130, 0.3);
+}
+
+/* ---------- 筛选选项 ---------- */
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #00bb8b;
+    cursor: pointer;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.filter-option input[type="radio"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #00bb8b;
+    border-radius: 50%;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.filter-option input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: #00bb8b;
+    border-radius: 50%;
+}
+
+/* ---------- 链接列表 ---------- */
+.connection-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.connection-item {
+    padding: 8px;
+    color: #00bb8b;
+    border-bottom: 1px solid rgba(0, 170, 130, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.connection-item:last-child {
+    border-bottom: none;
+}
+
+.connection-item .country-name {
+    flex-grow: 1;
+}
+
+.connection-item .partnership-type {
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin-left: 10px;
+}
+
+/* ---------- 滚动条样式 ---------- */
+.connection-list::-webkit-scrollbar,
+#searchResults::-webkit-scrollbar {
+    width: 6px;
+}
+
+.connection-list::-webkit-scrollbar-track,
+#searchResults::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.connection-list::-webkit-scrollbar-thumb,
+#searchResults::-webkit-scrollbar-thumb {
+    background: rgba(0, 170, 130, 0.5);
+    border-radius: 3px;
+}
+
+.connection-list::-webkit-scrollbar-thumb:hover,
+#searchResults::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 170, 130, 0.7);
+}
+
+.custom-tooltip {
+    background-color: rgba(22, 22, 22, 0.9) !important;
+    color: #00bb8b !important;
+    border: 1px solid rgba(22, 22, 22, 0.9) !important;
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+    border-radius: 3px !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5) !important;
+    font-family: 'Poppins-M', sans-serif;
+}
+
+.leaflet-popup-content-wrapper {
+    background: rgba(22, 22, 22, 0.9);
+    color: #00bb8b;
+}
+
+.leaflet-popup-tip {
+    background: rgba(22, 22, 22, 0.9);
+}
+
+/* ---------- 连线动画 ---------- */
+.connection-line {
+    stroke-linecap: round;
+    animation: connectionFlow 2s linear infinite;
+}
+
+@keyframes connectionFlow {
+    0% { stroke-dashoffset: 100; }
+    100% { stroke-dashoffset: 0; }
+}
+
+/* ---------- 缩放控件 ---------- */
+#zoom-controls {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 999;
+}
+
+#zoom-controls button {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #00bb8b;
+    border-radius: 7px;
+}
+
+#zoom-controls button:hover {
+    background-color: #333;
+}
+
+/* ---------- 折叠按钮 ---------- */
+.collapse-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 170, 130, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.collapse-button:hover {
+    background: rgba(0, 170, 130, 0.5);
+}
+
+.collapse-button i {
+    color: #00bb8b;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+/* ---------- 响应式设计 ---------- */
+@media (max-width: 768px) {
+    #control-panel {
+        width: 200px;
+    }
+}
+
+/* ---------- GitHub UI ---------- */
+.github-link {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    transition: 0.3s all;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.github-link:hover {
+    background: rgba(0, 170, 130, 0.3);
+}
+
+.github-link img {
+    width: 30px;
+    height: 30px;
+    filter: invert(69%) sepia(81%) saturate(356%) hue-rotate(116deg) brightness(89%) contrast(89%);
+}
+
+/* Risk Info 样式 */
+#risk-info {
+    margin-top: 15px;
+  }
+  
+  .risk-legend {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .color-scale {
+    width: 17px;
+    height: 100px;
+    background: linear-gradient(to top, 
+      #9e0142, #d53e4f, #f46d43, #fdae61, #fee08b,
+      #e6f598, #abdda4, #66c2a5, #3288bd, #5e4fa2
+    );
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 3px;
+  }
+
+  .risk-stats .ranking-section {
+    margin-bottom: 0.75rem;
+  }
+
+  .risk-stats .ranking-section {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-top: 0.25rem;
+  }
+
+  .risk-stats p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #00bb8b;
+  }
+  
+  /* colorbar */
+  .color-scale::before,
+  .color-scale::after {
+    position: absolute;
+    font-size: 10px;
+    color: white;
+  }
+  
+  .color-scale::before {
+    content: "High";
+    bottom: 150px;
+  }
+  
+  .color-scale::after {
+    content: "Low";
+    bottom: 30px;
+  }
